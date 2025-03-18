@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
     const [firstname, setfirstname] = useState("")
@@ -7,6 +8,8 @@ const SignUp = () => {
     const [email, setemail] = useState("")
     const [age, setage] = useState("")
     const [password, setpassword] = useState("")
+
+    let navigate = useNavigate()
     const registerUser = ()=>{
         // console.log({firstname, lastname, email, age, password})
         // axios(url, user)
@@ -15,6 +18,9 @@ const SignUp = () => {
         axios.post(url, user)
         .then((response)=>{
             console.log(response)
+            if(response.data.status === true){
+                navigate("/sign-in")
+            }
         })
         .catch((error)=>{
             console.log(error)
