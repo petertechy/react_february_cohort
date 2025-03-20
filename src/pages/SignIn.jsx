@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 const SignIn = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const [message, setmessage] = useState("")
   
   const navigate = useNavigate()
 
@@ -14,7 +15,11 @@ const SignIn = () => {
     .then((response)=>{
       console.log(response)
       if(response.data.status){
+      // localStorage.setItem('token', response.data.token)  
+      localStorage.token = response.data.token  
       navigate("/dashboard")
+      }else{
+        setmessage(response.data.message)
       }
     })
     .catch((err)=>{
@@ -39,6 +44,7 @@ const SignIn = () => {
           onChange={(e) => setpassword(e.target.value)}
           className="form-control mb-3"
         />
+        <p className="text-danger">{message}</p>
         <button className="btn btn-success w-100" onClick={handleLogin}>Login</button>
       </div>
     </>
