@@ -11,7 +11,7 @@ const Dashboard = () => {
   let navigate = useNavigate();
 
   let token = localStorage.token;
-  let url = "http://localhost:5700/dashboard";
+  let url = "https://node-february-cohort.onrender.com/dashboard";
 
   const getDashboard = () => {
     axios
