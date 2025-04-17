@@ -13,7 +13,7 @@ const SignUp = () => {
     const registerUser = ()=>{
         // console.log({firstname, lastname, email, age, password})
         // axios(url, user)
-        const url = "http://localhost:5700/register"
+        const url = "https://node-february-cohort.onrender.com/register"
         const user = {firstname, lastname, email, age, password}
         axios.post(url, user)
         .then((response)=>{
