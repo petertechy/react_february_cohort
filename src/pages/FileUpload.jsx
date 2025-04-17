@@ -21,7 +21,7 @@ const FileUpload = () => {
     }
 
     const uploadFile = () =>{
-        let url = "http://localhost:5700/file-upload"
+        let url = "https://node-february-cohort.onrender.com/file-upload"
         axios.post(url, {file})
         .then((response)=>{
             console.log(response.data)
